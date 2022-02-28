@@ -6,6 +6,7 @@ defmodule CreditCardLedger.Entity.User do
 
   schema "users" do
     field :fullname, :string
+    field :credit_limit, :integer
     field :inserted_at, :naive_datetime
   end
 
@@ -13,7 +14,7 @@ defmodule CreditCardLedger.Entity.User do
     truncated_now = NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second)
 
     %__MODULE__{inserted_at: truncated_now}
-    |> cast(params, [:fullname])
-    |> validate_required([:fullname])
+    |> cast(params, [:fullname, :credit_limit])
+    |> validate_required([:fullname, :credit_limit])
   end
 end
