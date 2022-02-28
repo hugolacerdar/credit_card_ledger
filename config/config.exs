@@ -9,3 +9,5 @@ config :credit_card_ledger, CreditCardLedger.Repo,
     password: "secret",
     hostname: "localhost",
     port: 3306
+
+config :credit_card_ledger, ecto_repos: [CreditCardLedger.Repo]
