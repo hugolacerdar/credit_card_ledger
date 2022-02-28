@@ -21,7 +21,7 @@ defmodule CreditCardLedger.Transaction do
     |> Repo.all()
     |> case do
       [nil] -> 0
-      [number] -> number
+      [number] -> Decimal.to_integer(number)
       _ -> 0
     end
   end
