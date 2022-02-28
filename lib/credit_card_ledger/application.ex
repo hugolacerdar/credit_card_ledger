@@ -6,7 +6,7 @@ defmodule CreditCardLedger.Application do
   @impl true
   def start(_type, _args) do
     children = [
-
+      CreditCardLedger.Repo
     ]
 
     opts = [strategy: :one_for_one, name: CreditCardLedger.Supervisor]
