@@ -7,7 +7,8 @@ defmodule CreditCardLedger.MixProject do
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -29,6 +30,12 @@ defmodule CreditCardLedger.MixProject do
       {:ecto_sql, "~> 3.4"},
       {:jason, "~> 1.2"},
       {:myxql, "~> 0.4.1"},
+    ]
+  end
+
+  defp aliases do
+    [
+      lint: "credo --strict"
     ]
   end
 end
