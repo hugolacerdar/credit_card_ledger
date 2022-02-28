@@ -35,7 +35,8 @@ defmodule CreditCardLedger.MixProject do
 
   defp aliases do
     [
-      lint: "credo --strict"
+      lint: "credo --strict",
+      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]
     ]
   end
 end
