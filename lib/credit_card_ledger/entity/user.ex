@@ -15,6 +15,6 @@ defmodule CreditCardLedger.Entity.User do
 
     %__MODULE__{inserted_at: truncated_now}
     |> cast(params, [:fullname, :credit_limit])
-    |> validate_required([:fullname, :credit_limit])
+    |> validate_required([:fullname])
   end
 end
