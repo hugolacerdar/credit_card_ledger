@@ -1,10 +1,11 @@
 defmodule CreditCardLedgerHTTP.Router do
   use Plug.Router
-  import Plug.Conn
 
+  plug(Plug.Logger)
   plug(:fetch_query_params)
   plug(:match)
+  plug(Plug.Parsers, parsers: [:json], json_decoder: Poison)
   plug(:dispatch)
 
-  get("/", do: CreditCardLedgerHTTP.Handler.index(conn))
+  post("/transaction", do: CreditCardLedgerHTTP.Handler.handle_transaction(conn))
 end
