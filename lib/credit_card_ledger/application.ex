@@ -9,7 +9,8 @@ defmodule CreditCardLedger.Application do
     Logger.info("Starting http server at port #{@http_port}")
     children = [
       CreditCardLedger.Repo,
-      {Plug.Cowboy, scheme: :http, plug: CreditCardLedgerHTTP.Router, options: [port: @http_port]}
+      {Plug.Cowboy, scheme: :http, plug: CreditCardLedgerHTTP.Router, options: [port: @http_port]},
+      CreditCardLedger.SafeTransaction
     ]
 
     opts = [strategy: :one_for_one, name: CreditCardLedger.Supervisor]
