@@ -9,6 +9,11 @@ defmodule CreditCardLedger.SafeTransaction do
     DynamicSupervisor.init(strategy: :one_for_one)
   end
 
+  def add_transaction(user_id, amount) do
+    {:ok, pid} = get_or_create_worker(user_id)
+    GenServer.call(pid, {:add_transaction, %{user_id: user_id, amount: amount}})
+  end
+
   def get_or_create_worker(user_id) do
     worker_name = :"AccountWorker.#{user_id}"
 
