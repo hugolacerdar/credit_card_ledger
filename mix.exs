@@ -28,8 +28,8 @@ defmodule CreditCardLedger.MixProject do
       {:credo, "~> 1.4"},
       {:plug_cowboy, "~> 2.2"},
       {:ecto_sql, "~> 3.4"},
-      {:jason, "~> 1.2"},
       {:myxql, "~> 0.4.1"},
+      {:poison, "~> 3.1"},
     ]
   end
 
